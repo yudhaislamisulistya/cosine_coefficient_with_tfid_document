@@ -202,20 +202,32 @@ def cosine_similarity(query, document):
 st.subheader("Cosine Coefficient For Query 1 and All Documents")
 st.write("Query 1 : ", result['query_no_punct_no_stopword_stem'][0])
 st.write("Similarity With All Documents")
+arr_cosine_similarity_query_1 = {}
 for i in range(3):
+    arr_cosine_similarity_query_1['dokumen_'+str(i+1)] = cosine_similarity(tfidf_query['query 1'], tfidf['dokumen_'+str(i+1)])
     st.write("Cosine Coefficient With Document ", i+1, " : ", cosine_similarity(tfidf_query['query 1'], tfidf['dokumen_'+str(i+1)]))
+max_cosine_similarity_query_1 = max(arr_cosine_similarity_query_1, key=arr_cosine_similarity_query_1.get)
+st.write("Document With Max Cosine Coefficient : ", max_cosine_similarity_query_1 , " With Value : " , arr_cosine_similarity_query_1[max_cosine_similarity_query_1], "(Persen) : ", round(arr_cosine_similarity_query_1[max_cosine_similarity_query_1] * 100, 2), "%")
 
 st.subheader("Cosine Coefficient For Query 2 and All Documents")
 st.write("Query 2 : ", result['query_no_punct_no_stopword_stem'][1])
 st.write("Similarity With All Documents")
+arr_cosine_similarity_query_2 = {}
 for i in range(3):
+    arr_cosine_similarity_query_2['dokumen_'+str(i+1)] = cosine_similarity(tfidf_query['query 2'], tfidf['dokumen_'+str(i+1)])
     st.write("Cosine Coefficient With Document ", i+1, " : ", cosine_similarity(tfidf_query['query 2'], tfidf['dokumen_'+str(i+1)]))
-    
+max_cosine_similarity_query_2 = max(arr_cosine_similarity_query_2, key=arr_cosine_similarity_query_2.get)
+st.write("Document With Max Cosine Coefficient : ", max_cosine_similarity_query_2 , " With Value : " , arr_cosine_similarity_query_2[max_cosine_similarity_query_2] ,"(Persen) : ", round(arr_cosine_similarity_query_2[max_cosine_similarity_query_2] * 100, 2), "%")
+
 st.subheader("Cosine Coefficient For Query 3 and All Documents")
 st.write("Query 3 : ", result['query_no_punct_no_stopword_stem'][2])
 st.write("Similarity With All Documents")
+arr_cosine_similarity_query_3 = {}
 for i in range(3):
+    arr_cosine_similarity_query_3['dokumen_'+str(i+1)] = cosine_similarity(tfidf_query['query 3'], tfidf['dokumen_'+str(i+1)])
     st.write("Cosine Coefficient With Document ", i+1, " : ", cosine_similarity(tfidf_query['query 3'], tfidf['dokumen_'+str(i+1)]))
-
+    
+max_cosine_similarity_query_3 = max(arr_cosine_similarity_query_3, key=arr_cosine_similarity_query_3.get)
+st.write("Document With Max Cosine Coefficient : ", max_cosine_similarity_query_3 , " With Value : " , arr_cosine_similarity_query_3[max_cosine_similarity_query_3] ,"(Persen) : ", round(arr_cosine_similarity_query_3[max_cosine_similarity_query_3] * 100, 2), "%")
     
     
